@@ -57,17 +57,17 @@ export default function Sidemenu({ open, toggleDrawer }) {
           <ListItemText primary="Solicitud de Credito" />
         </ListItemButton>
 
-        <ListItemButton onClick={() => navigate("/paycheck/calculate")}>
+        <ListItemButton onClick={() => navigate("/credit-applications")}>
           <ListItemIcon>
             <CalculateIcon />
           </ListItemIcon>
-          <ListItemText primary="Calcular Planilla" />
+          <ListItemText primary="Ver Solicitudes de Credito" />
         </ListItemButton>
-        <ListItemButton onClick={() => navigate("/reports/AnualReport")}>
+        <ListItemButton onClick={() => navigate("/evaluate-cred-app")}>
           <ListItemIcon>
             <AnalyticsIcon />
           </ListItemIcon>
-          <ListItemText primary="Gráficos Planillas" />
+          <ListItemText primary="Evaluar Solicitudes de Creditos" />
         </ListItemButton>
       </List>
 
@@ -79,18 +79,6 @@ export default function Sidemenu({ open, toggleDrawer }) {
             <DocumentScannerIcon />
           </ListItemIcon>
           <ListItemText primary="Documentos" />
-        </ListItemButton>
-        <ListItemButton onClick={() => navigate("/paycheck/vacations")}>
-          <ListItemIcon>
-            <HailIcon />
-          </ListItemIcon>
-          <ListItemText primary="Vacaciones" />
-        </ListItemButton>
-        <ListItemButton onClick={() => navigate("/paycheck/medicalleave")}>
-          <ListItemIcon>
-            <MedicationLiquidIcon />
-          </ListItemIcon>
-          <ListItemText primary="Licencias Medicas" />
         </ListItemButton>
       </List>
     </Box>

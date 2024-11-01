@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { TextField, Button, Box, Paper, Typography } from "@mui/material";
-import clientService from "../services/client.service";
 import bankExecutiveService from "../services/bank.executive";
 
 const CreditSimulation = () => {
@@ -9,30 +8,36 @@ const CreditSimulation = () => {
     const [timeLimit, setTimeLimit] = useState("");
     const [expectedAmount, setExpectedAmount] = useState("");
     const [monthlyLoan, setMonthlyLoan] = useState("");
+    const [showResults, setShowResults] = useState(false);
 
     const handleRutChange = (e) => {
-        const newRut = e.target.value;
-        setRut(newRut);
+        setRut(e.target.value);
+    };
 
-        if (newRut) {
-            bankExecutiveService.getInteresRateOfClientByRut(newRut)
+    const fetchClientData = () => {
+        if (rut) {
+            bankExecutiveService.getInteresRateOfClientByRut(rut)
                 .then(response => setInterestRate(response.data))
                 .catch(error => console.error("Error al obtener el interest rate", error));
 
-                bankExecutiveService.getTimeLimitOfClientByRut(newRut)
+            bankExecutiveService.getTimeLimitOfClientByRut(rut)
                 .then(response => setTimeLimit(response.data))
                 .catch(error => console.error("Error al obtener el time limit", error));
 
-                bankExecutiveService.getExpectedAmountOfClientByRut(newRut)
+            bankExecutiveService.getExpectedAmountOfClientByRut(rut)
                 .then(response => setExpectedAmount(response.data))
                 .catch(error => console.error("Error al obtener el expected amount", error));
+
+            setShowResults(true);
         }
     };
 
     const calculateMonthlyLoan = () => {
-        bankExecutiveService.getMonthlyLoanOfClientByRut(rut)
-            .then(response => setMonthlyLoan(response.data))
-            .catch(error => console.error("Error al calcular el monthly loan", error));
+        if (rut) {
+            bankExecutiveService.getMonthlyLoanOfClientByRut(rut)
+                .then(response => setMonthlyLoan(response.data))
+                .catch(error => console.error("Error al calcular el monthly loan", error));
+        }
     };
 
     return (
@@ -47,33 +52,40 @@ const CreditSimulation = () => {
                     value={rut}
                     onChange={handleRutChange}
                 />
-                <TextField
-                    label="Interest Rate"
-                    variant="outlined"
-                    value={interestRate}
-                    InputProps={{ readOnly: true }}
-                />
-                <TextField
-                    label="Time Limit"
-                    variant="outlined"
-                    value={timeLimit}
-                    InputProps={{ readOnly: true }}
-                />
-                <TextField
-                    label="Expected Amount"
-                    variant="outlined"
-                    value={expectedAmount}
-                    InputProps={{ readOnly: true }}
-                />
-                <TextField
-                    label="Monthly Loan"
-                    variant="outlined"
-                    value={monthlyLoan}
-                    InputProps={{ readOnly: true }}
-                />
-                <Button variant="contained" color="primary" onClick={calculateMonthlyLoan}>
-                    Calcular Monthly Loan
+                <Button variant="contained" color="primary" onClick={fetchClientData}>
+                    Obtener Datos
                 </Button>
+                <Button variant="contained" color="secondary" onClick={calculateMonthlyLoan}>
+                    Calcular Costo Mensual
+                </Button>
+                {showResults && (
+                    <>
+                        <TextField
+                            label="Interest Rate"
+                            variant="outlined"
+                            value={interestRate}
+                            InputProps={{ readOnly: true }}
+                        />
+                        <TextField
+                            label="Time Limit"
+                            variant="outlined"
+                            value={timeLimit}
+                            InputProps={{ readOnly: true }}
+                        />
+                        <TextField
+                            label="Expected Amount"
+                            variant="outlined"
+                            value={expectedAmount}
+                            InputProps={{ readOnly: true }}
+                        />
+                        <TextField
+                            label="Monthly Loan"
+                            variant="outlined"
+                            value={monthlyLoan}
+                            InputProps={{ readOnly: true }}
+                        />
+                    </>
+                )}
             </Box>
         </Paper>
     );

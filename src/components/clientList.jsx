@@ -36,22 +36,26 @@ const ClientList = () => {
         init();
     }, []);
 
-    const handleEdit = (rut) => {
-      console.log("Printing rut", rut);
-      navigate(`/client/edit/${rut}`);
-     };
+    const handleEdit = (id) => {
+      navigate(`/client/edit/${id}`); 
+    };
   
-    const handleDelete = (rut) => {
-      // Implementación de eliminar cliente por rut
-      clientService
-          .delete(rut)
-          .then((response) => {
-              console.log("Cliente eliminado con éxito.", response.data);
-              init(); // Recarga la lista después de la eliminación
-          })
-          .catch((error) => {
-              console.log("Error al intentar eliminar el cliente.", error);
-          });
+    const handleDelete = (id) => {
+      // Mensaje de confirmación antes de eliminar
+      const confirmed = window.confirm("¿Estás seguro de que deseas eliminar este cliente?");
+      if (confirmed) {
+          clientService
+              .deleteById(id) // Cambia `delete` por `deleteById` y usa el ID
+              .then((response) => {
+                  console.log("Cliente eliminado con éxito.", response.data);
+                  init(); // Recarga la lista después de la eliminación
+              })
+              .catch((error) => {
+                  console.log("Error al intentar eliminar el cliente.", error);
+              });
+      } else {
+          console.log("Eliminación cancelada.");
+      }
     };
       const handleDebtList = (rut) => {
         navigate(`/debts/${rut}`);
@@ -199,7 +203,7 @@ const ClientList = () => {
                       variant="contained"
                       color="info"
                       size="small"
-                      onClick={() => handleEdit(client.rut)} // Cambiado a client.rut
+                      onClick={() => handleEdit(client.client_id)} // Cambiado a client.rut
                       style={{ marginLeft: "0.5rem" }}
                       startIcon={<EditIcon />}
                   >
@@ -209,7 +213,7 @@ const ClientList = () => {
                       variant="contained"
                       color="error"
                       size="small"
-                      onClick={() => handleDelete(client.rut)} // Cambiado a client.rut
+                      onClick={() => handleDelete(client.client_id)} // Cambiado a client.rut
                       style={{ marginLeft: "0.5rem" }}
                       startIcon={<DeleteIcon />}
                   >

@@ -92,7 +92,7 @@ const DocumentList = () => {
                         variant="contained"
                         color="primary"
                         startIcon={<DownloadIcon />}
-                        onClick={() => downloadFile(doc.file, `${doc.name}.pdf`)}
+                        onClick={() => downloadFile(doc.file, `${doc.name}`)}
                       >
                         Descargar
                       </Button>
