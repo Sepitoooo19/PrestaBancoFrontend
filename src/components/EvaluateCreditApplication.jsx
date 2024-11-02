@@ -137,7 +137,7 @@ const CreditApplicationById = () => {
         }
     };
 
-    const verifyBankAccountBalance = async () => {
+/*     const verifyBankAccountBalance = async () => {
         if (!rut) {
             setStatus("Por favor, proporciona el RUT del cliente.");
             return;
@@ -159,7 +159,9 @@ const CreditApplicationById = () => {
             setStatus(`Error al verificar el saldo de la cuenta: ${errorMessage}`);
             setBalanceVerification(null);
         }
-    };
+    }; 
+    
+    */
 
 
     const validateBankAccountConsistency = async () => {
@@ -209,7 +211,7 @@ const CreditApplicationById = () => {
         }
     };
 
-    const checkJobSeniorityAmountRatio = async () => {
+/*     const checkJobSeniorityAmountRatio = async () => {
         if (!rut) {
             setStatus("Por favor, proporciona el RUT del cliente.");
             return;
@@ -231,7 +233,7 @@ const CreditApplicationById = () => {
             setStatus(`Error al verificar la relación de antigüedad en el trabajo y monto: ${errorMessage}`);
             setJobSeniorityAmountRatio(null);
         }
-    };
+    }; */
 
 
     const checkLargeWithdrawals = async () => {
@@ -595,7 +597,7 @@ const CreditApplicationById = () => {
                                 margin="normal"
                             />
                         </Grid>
-                        <Grid item xs={12}>
+                        {/* <Grid item xs={12}>
                             <Button
                                 variant="contained"
                                 color="primary"
@@ -604,7 +606,7 @@ const CreditApplicationById = () => {
                             >
                                 Verificar Saldo
                             </Button>
-                        </Grid>
+                        </Grid> */}
 
                         <Grid>
                             <Button
@@ -626,7 +628,7 @@ const CreditApplicationById = () => {
                                 Verificar Depósitos Periódicos
                             </Button>
                         </Grid>
-                        <Grid>
+                        {/* <Grid>
                             <Button
 
                                 variant="contained"
@@ -636,7 +638,7 @@ const CreditApplicationById = () => {
                             >
                                 Verificar Relación de Antigüedad en el Trabajo y Monto
                             </Button>
-                        </Grid>
+                        </Grid> */}
                         <Grid>
                             <Button
 
@@ -665,14 +667,6 @@ const CreditApplicationById = () => {
                                 Insuficiente
                             </Button>
                         </Grid>
-                        {balanceVerification !== null && (
-                            <Box sx={{ mt: 2 }}>
-                                <Typography variant="h6">Resultado de Verificación de Saldo de Cuenta:</Typography>
-                                <Typography variant="body1">
-                                    {balanceVerification} {/* Muestra el mensaje completo del backend */}
-                                </Typography>
-                            </Box>
-                        )}
                     {consistencyVerification !== null && (
                         <Box sx={{ mt: 2 }}>
                             <Typography variant="h6">Resultado de Verificación de Consistencia:</Typography>
@@ -689,14 +683,7 @@ const CreditApplicationById = () => {
                             </Typography>
                         </Box>
                     )}
-                    {jobSeniorityAmountRatio !== null && (
-                        <Box sx={{ mt: 2 }}>
-                            <Typography variant="h6">Resultado de Verificación de la Relación de Antigüedad en el Trabajo y Monto:</Typography>
-                            <Typography variant="body1">
-                                {jobSeniorityAmountRatio} {/* Muestra el mensaje completo del backend */}
-                            </Typography>
-                        </Box>
-                    )}
+                    
 
                     {largeWithdrawals !== null && (
                         <Box sx={{ mt: 2 }}>

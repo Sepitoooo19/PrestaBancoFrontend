@@ -61,25 +61,25 @@ const CreditSimulation = () => {
                 {showResults && (
                     <>
                         <TextField
-                            label="Interest Rate"
+                            label="Tasa de Interés"
                             variant="outlined"
                             value={interestRate}
                             InputProps={{ readOnly: true }}
                         />
                         <TextField
-                            label="Time Limit"
+                            label="Plazo Máximo"
                             variant="outlined"
                             value={timeLimit}
                             InputProps={{ readOnly: true }}
                         />
                         <TextField
-                            label="Expected Amount"
+                            label="Monto Esperado"
                             variant="outlined"
                             value={expectedAmount}
                             InputProps={{ readOnly: true }}
                         />
                         <TextField
-                            label="Monthly Loan"
+                            label="Prestamo Mensual"
                             variant="outlined"
                             value={monthlyLoan}
                             InputProps={{ readOnly: true }}

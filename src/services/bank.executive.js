@@ -4,8 +4,6 @@ const getDebtsByRut = (rut) => {
     return httpClient.get(`http://localhost:8090/api/executives/${rut}/debts`);
 }
 
-
-
 const getEmploymentHistoryByRut = (rut) => {
     return httpClient.get(`http://localhost:8090/api/executives/${rut}/employment-history`);
 }
@@ -74,9 +72,9 @@ const getClientByRut = (rut) => {
     return httpClient.get(`http://localhost:8090/api/executives/${rut}`);
 }
 
-const isBankAccountBalanceTenPercentageOfMonthlyFeeByRut = (rut) => {
-    return httpClient.get(`http://localhost:8090/api/executives/${rut}/check-balance`);
-}
+//const isBankAccountBalanceTenPercentageOfMonthlyFeeByRut = (rut) => {
+//    return httpClient.get(`http://localhost:8090/api/executives/${rut}/check-balance`);
+//}
 
 const validateBankAccountConsistencyByRut = (rut) => {
     return httpClient.get(`http://localhost:8090/api/executives/${rut}/account-consistency`);
@@ -86,9 +84,9 @@ const checkPeriodicDeposits = (rut) => {
     return httpClient.get(`http://localhost:8090/api/executives/clients/${rut}/periodic-deposits`);
 }
 
-const checkJobSeniorityAmountRatio = (rut) => {
-    return httpClient.get(`http://localhost:8090/api/executives/${rut}/verify-balance-and-age`);
-}
+//const checkJobSeniorityAmountRatio = (rut) => {
+ //   return httpClient.get(`http://localhost:8090/api/executives/${rut}/verify-balance-and-age`);
+//}
 
 const checkLargeWithdrawals = (rut) => {
     return httpClient.get(`http://localhost:8090/api/executives/check-large-withdrawals/${rut}`);
@@ -132,10 +130,10 @@ export default {
     getPendingDebtsMonthlySalaryByRut,
     verifyClientAge,
     getClientByRut,
-    isBankAccountBalanceTenPercentageOfMonthlyFeeByRut,
+    //isBankAccountBalanceTenPercentageOfMonthlyFeeByRut,
     validateBankAccountConsistencyByRut,
     checkPeriodicDeposits,
-    checkJobSeniorityAmountRatio,
+    //checkJobSeniorityAmountRatio,
     checkLargeWithdrawals,
     insuranceCalculationByRut,
     administrationCommissionByRut,

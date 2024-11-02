@@ -66,26 +66,26 @@ const EditClient = () => {
 
     return (
         <Box sx={{ maxWidth: 400, mx: 'auto', mt: 5, p: 3, border: '1px solid #ccc', borderRadius: 2 }}>
-            <h2>Edit Client</h2>
+            <h2>Editar Cliente</h2>
             <FormControl fullWidth margin="normal">
-                <InputLabel>Select Field to Edit</InputLabel>
+                <InputLabel>Seleccione un atributo para editar</InputLabel>
                 <Select value={selectedField} onChange={handleFieldChange}>
                     <MenuItem value=""><em>Select a field</em></MenuItem>
-                    <MenuItem value="name">Name</MenuItem>
+                    <MenuItem value="name">Nombre</MenuItem>
                     <MenuItem value="rut">RUT</MenuItem>
                     <MenuItem value="email">Email</MenuItem>
-                    <MenuItem value="phone">Phone</MenuItem>
-                    <MenuItem value="age">Age</MenuItem>
-                    <MenuItem value="monthly_salary">Monthly Salary</MenuItem>
-                    <MenuItem value="personal_savings">Personal Savings</MenuItem>
-                    <MenuItem value="job_type">Job Type</MenuItem>
-                    <MenuItem value="expected_amount">Expected Amount</MenuItem>
-                    <MenuItem value="time_limit">Time Limit</MenuItem>
-                    <MenuItem value="interest_rate">Interest Rate</MenuItem>
-                    <MenuItem value="type_loan">Type of Loan</MenuItem>
-                    <MenuItem value="independent_activity">Independent Activity</MenuItem>
-                    <MenuItem value="job_seniority">Job Seniority</MenuItem>
-                    <MenuItem value="actual_job">Actual Job</MenuItem>
+                    <MenuItem value="phone">Teléfono</MenuItem>
+                    <MenuItem value="age">Edad</MenuItem>
+                    <MenuItem value="monthly_salary">Salario Mensual</MenuItem>
+                    <MenuItem value="personal_savings">Ahorro Personal</MenuItem>
+                    <MenuItem value="job_type">Tipo de Empleo</MenuItem>
+                    <MenuItem value="expected_amount">Monto Esperado</MenuItem>
+                    <MenuItem value="time_limit">Plazo Maximo</MenuItem>
+                    <MenuItem value="interest_rate">Tasa de Interés</MenuItem>
+                    <MenuItem value="type_loan">Tipo de Prestamo</MenuItem>
+                    <MenuItem value="independent_activity">¿Trabajador Independiente?</MenuItem>
+                    <MenuItem value="job_seniority">Antigüedad Laboral</MenuItem>
+                    <MenuItem value="actual_job">Trabajo Actual</MenuItem>
                 </Select>
             </FormControl>
 
